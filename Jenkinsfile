@@ -4,8 +4,8 @@ pipeline {
     environment {
         AWS_REGION         = 'ap-south-1'
         ECR_REGISTRY       = '041659741300.dkr.ecr.ap-south-1.amazonaws.com'
-        BACKEND_IMAGE      = "${ECR_REGISTRY}/mealify-backend"
-        FRONTEND_IMAGE     = "${ECR_REGISTRY}/mealify-frontend"
+        BACKEND_IMAGE      = "${ECR_REGISTRY}/mealify_backend"
+        FRONTEND_IMAGE     = "${ECR_REGISTRY}/mealify_frontend"
         ADMIN_IMAGE        = "${ECR_REGISTRY}/mealify-admin"
         K3S_SERVER_IP      = '13.205.41.20'
         //K3S_SSH_KEY        = credentials('k3s-ssh-key')
