@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,7 +34,7 @@ spec:
                   key: JWT_SECRET
             - name: PORT
               value: "4000"
-              volumeMounts:
+          volumeMounts:
             - name: uploads
               mountPath: /app/uploads
       volumes:
