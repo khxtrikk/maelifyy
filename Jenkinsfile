@@ -8,7 +8,7 @@ pipeline {
         FRONTEND_IMAGE     = "${ECR_REGISTRY}/mern-frontend"
         ADMIN_IMAGE        = "${ECR_REGISTRY}/mern-admin"
         K3S_SERVER_IP      = '13.205.41.20'
-        K3S_SSH_KEY        = credentials('k3s-ssh-key')
+        //K3S_SSH_KEY        = credentials('k3s-ssh-key')
     }
 
     stages {
@@ -73,18 +73,18 @@ pipeline {
             }
         }
 
-        stage('Deploy to k3s') {
-            steps {
-                sh '''
-                    ssh -o StrictHostKeyChecking=no \
-                        -i $K3S_SSH_KEY \
-                        ubuntu@$K3S_SERVER_IP \
-                        "kubectl set image deployment/backend  backend=$BACKEND_IMAGE:$BUILD_NUMBER  -n mern && \
-                         kubectl set image deployment/frontend frontend=$FRONTEND_IMAGE:$BUILD_NUMBER -n mern && \
-                         kubectl set image deployment/admin    admin=$ADMIN_IMAGE:$BUILD_NUMBER    -n mern"
-                '''
-            }
-        }
+        // stage('Deploy to k3s') {
+        //     steps {
+        //         sh '''
+        //             ssh -o StrictHostKeyChecking=no \
+        //                 -i $K3S_SSH_KEY \
+        //                 ubuntu@$K3S_SERVER_IP \
+        //                 "kubectl set image deployment/backend  backend=$BACKEND_IMAGE:$BUILD_NUMBER  -n mern && \
+        //                  kubectl set image deployment/frontend frontend=$FRONTEND_IMAGE:$BUILD_NUMBER -n mern && \
+        //                  kubectl set image deployment/admin    admin=$ADMIN_IMAGE:$BUILD_NUMBER    -n mern"
+        //         '''
+        //     }
+        // }
     }
 
     post {
