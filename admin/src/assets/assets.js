@@ -14,4 +14,4 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'http://admin.13.205.41.20.nip.io'
+export const url = 'http://api.13.205.41.20.nip.io:30080'

@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "http://api.13.205.41.20.nip.io"
+    const url = "http://api.13.205.41.20.nip.io:30080"
     const [token, setToken] = useState("");
     const [food_list, setFoodList] = useState([]);
 
